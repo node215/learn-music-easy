@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lessons | Melody Academy - Home of Music</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0B0B0F;--nav:#111116;--purple:#7C3AED;--pink:#FF2E93;--white:#fff;--silver:#A1A1AA;--card:#18181F;--hover:#A855F7;--gold:#D4A017;--border:#27272A}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--white);line-height:1.6;padding-bottom:30px}
+h1,h2,h3{font-family:'Poppins',sans-serif}
+a{text-decoration:none;color:inherit}
+.navbar{background:var(--nav);display:flex;align-items:center;justify-content:space-between;padding:12px 5%;position:sticky;top:0;z-index:100;border-bottom:1px solid var(--border)}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-mark{width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--pink));display:flex;align-items:center;justify-content:center;font-size:30px;border:2px solid var(--gold);position:relative}
+.logo-mark i{position:absolute;bottom:-3px;right:-3px;width:18px;height:18px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-style:normal;font-size:10px;color:#111;font-weight:900;border:2px solid #0B0B0F}
+.logo-text strong{display:block;font-size:19px;line-height:1}.logo-text strong span{color:var(--pink)}
+.logo-text small{display:block;font-size:10px;letter-spacing:2.5px;color:var(--silver);font-weight:700}
+.logo-text em{display:block;font-style:normal;font-size:11px;color:var(--gold);font-weight:700}
+.nav-links{display:flex;gap:20px;font-size:14px;font-weight:600;color:var(--silver);align-items:center}
+.nav-links a.active{color:#fff}.nav-links a:hover{color:var(--pink)}
+.user-pill{background:var(--card);border:1px solid var(--border);padding:8px 14px;border-radius:100px;font-size:13px;font-weight:700}
+.user-pill b{color:var(--pink)}
+.wrap{max-width:1180px;margin:0 auto;padding:24px 5%}
+.hero h1{font-size:clamp(28px,4vw,42px)}.hero h1 span{color:var(--pink)}
+.hero p{color:var(--silver);font-size:14.5px;margin-top:6px}
+.search-row{display:flex;gap:10px;margin:18px 0;flex-wrap:wrap}
+.search-row input{flex:1;min-width:220px;background:var(--card);border:1px solid var(--border);border-radius:100px;padding:13px 18px;color:#fff;font-size:14px;outline:none}
+.search-row input:focus{border-color:var(--purple)}
+.btn{padding:11px 20px;border-radius:100px;font-weight:700;font-size:14px;display:inline-block;cursor:pointer;border:0}
+.btn-purple{background:var(--purple);color:#fff}.btn-ghost{border:1.5px solid #3F3F46;color:#fff;background:transparent}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.filter{padding:9px 16px;border-radius:100px;border:1px solid var(--border);background:var(--card);color:var(--silver);font-size:13px;font-weight:700;cursor:pointer}
+.filter.active{background:var(--purple);color:#fff;border-color:var(--purple)}
+/* LESSON CARDS */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;transition:.25s}
+.card:hover{transform:translateY(-4px);border-color:var(--hover)}
+.thumb{height:170px;position:relative;background:#15151C;border-bottom:2px dashed #3F3F46;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;overflow:hidden}
+.thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none}
+.thumb.has-img img{display:block}
+.thumb.has-img .thumb-text{display:none}
+.thumb-text{text-align:center;padding:10px}
+.thumb-text span{font-size:36px}.thumb-text b{font-size:13px;display:block;margin-top:4px}.thumb-text small{font-size:11px;color:var(--silver)}
+.thumb input{display:none}
+.thumb .cat-badge{position:absolute;top:10px;left:10px;background:#000;color:#fff;padding:5px 10px;border-radius:100px;font-size:11px;font-weight:800;z-index:2}
+.thumb .time-badge{position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,.7);padding:5px 10px;border-radius:100px;font-size:11px;z-index:2}
+.card-body{padding:16px}.card-body h3{font-size:15.5px;line-height:1.3}.card-body p{color:var(--silver);font-size:13px;margin-top:6px}
+.meta{display:flex;justify-content:space-between;margin-top:12px;font-size:12px;color:var(--silver);align-items:center}
+.meta b{color:var(--pink)}
+.start-btn{margin-top:12px;width:100%;padding:11px;border:0;border-radius:100px;background:var(--purple);color:#fff;font-weight:800;font-size:14px;cursor:pointer}
+.start-btn:hover{background:var(--hover)}
+footer{max-width:1180px;margin:24px auto 0;padding:0 5%;text-align:center;color:var(--silver);font-size:13px}
+@media(max-width:900px){.grid{grid-template-columns:1fr 1fr}.nav-links{display:none}}
+@media(max-width:560px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="navbar">
+  <a href="index.html" class="logo"><div class="logo-mark"><span>𝄞</span><i>♪</i></div><span class="logo-text"><strong>MELODY <span>ACADEMY</span></strong><small>LEARN • PLAY • SING</small><em>Home of Music</em></span></a>
+  <nav class="nav-links"><a href="index.html">Home</a><a href="lessons.html" class="active">Lessons</a><a href="about.html">About</a><a href="join.html">Join</a><span class="user-pill" id="userPill">👤 Guest • <a href="login.html" style="color:var(--pink)">Login</a></span></nav>
+</header>
+
+<div class="wrap">
+  <div class="hero"><h1>Learn Music <span>The Easy Way.</span></h1><p>Pick a lesson below. Tap the blank picture space to upload your own picture for that lesson.</p></div>
+
+  <div class="search-row"><input type="text" id="search" placeholder="🔍 Search lessons... e.g. Piano, Solfa, Vocal" oninput="render()"><button class="btn btn-purple" onclick="render()">Search</button></div>
+
+  <div class="filters" id="filters">
+    <button class="filter active" onclick="setCat('all',this)">All Lessons</button>
+    <button class="filter" onclick="setCat('theory',this)">🎼 Theory</button>
+    <button class="filter" onclick="setCat('piano',this)">🎹 Piano</button>
+    <button class="filter" onclick="setCat('vocal',this)">🎤 Vocal</button>
+    <button class="filter" onclick="setCat('solfa',this)">🎶 Solfa</button>
+    <button class="filter" onclick="setCat('reading',this)">📖 Reading</button>
+    <button class="filter" onclick="setCat('industry',this)">🌟 Industry</button>
+  </div>
+
+  <h2 style="margin-bottom:12px">All Lessons <span style="color:var(--pink)" id="count"></span></h2>
+  <div class="grid" id="grid"></div>
+</div>
+
+<footer><b style="color:#fff">MELODY ACADEMY home of music</b> • Learn • Play • Sing<br>© 2026 Melody Academy. All rights reserved.</footer>
+
+<script>
+const lessons = [
+  {id:'p1', cat:'piano', title:'Piano 1: Your First 3 Chords', desc:'Learn C, F & G. Play your first song today.', emoji:'🎹', time:'12 min', views:'12k'},
+  {id:'p2', cat:'piano', title:'Piano 2: 4 Chords, 100 Songs', desc:'C - G - Am - F. The magic progression behind 100s of songs.', emoji:'🎹', time:'15 min', views:'9.8k'},
+  {id:'p3', cat:'piano', title:'Piano 3: Major & Minor Chords', desc:'Build any chord with a simple formula. No memorizing.', emoji:'🎹', time:'10 min', views:'8.1k'},
+  {id:'t1', cat:'theory', title:'Theory 1: Notes & Scales', desc:'Notes, scales, intervals & chords — all in one clear lesson.', emoji:'🎼', time:'10 min', views:'15k'},
+  {id:'t2', cat:'theory', title:'Theory 2: Music Theory Basics', desc:'Start from zero: alphabet, notes, whole & half steps.', emoji:'🎼', time:'18 min', views:'11k'},
+  {id:'t3', cat:'theory', title:'Theory 3: Chords & Progressions', desc:'How chords are built and why progressions sound good.', emoji:'🎼', time:'14 min', views:'7.5k'},
+  {id:'v1', cat:'vocal', title:'Vocal 1: 10-Min Warm Up', desc:'Lip trills, sirens, humming — warm up safely every day.', emoji:'🎤', time:'10 min', views:'13k'},
+  {id:'v2', cat:'vocal', title:'Vocal 2: 5-Minute Warm Up', desc:'Quick routine for flexibility, pitch & smooth transitions.', emoji:'🎤', time:'5 min', views:'9k'},
+  {id:'v3', cat:'vocal', title:'Vocal 3: Breathing & Support', desc:'Sing longer phrases without running out of air.', emoji:'🎤', time:'8 min', views:'6.2k'},
+  {id:'s1', cat:'solfa', title:'Solfa 1: Do-Re-Mi Made Easy', desc:'Do Re Mi Fa Sol La Ti Do — with hand signs.', emoji:'🎶', time:'9 min', views:'14k'},
+  {id:'s2', cat:'solfa', title:'Solfa 2: Sing The Major Scale', desc:'Sing the major scale in tune, step by step.', emoji:'🎶', time:'11 min', views:'8.7k'},
+  {id:'s3', cat:'solfa', title:'Solfa 3: Do-Re-Mi Song', desc:'The classic Do-Re-Mi song to lock Solfa in your memory.', emoji:'🎶', time:'6 min', views:'20k'},
+  {id:'r1', cat:'reading', title:'Reading 1: How To Read Music', desc:'Treble clef, staff, note values & rests — from zero.', emoji:'📖', time:'13 min', views:'10k'},
+  {id:'i1', cat:'industry', title:'Industry 1: Worship Leading', desc:'How to lead worship with confidence and heart.', emoji:'🌟', time:'12 min', views:'5.4k'},
+];
+let currentCat = 'all';
+function getUser(){ try{ return JSON.parse(localStorage.getItem('melody_user')||'null'); }catch(e){ return null; } }
+function setCat(cat, btn){
+  currentCat = cat;
+  document.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  render();
+}
+function uploadPic(input, imgId, boxId){
+  const file = input.files[0]; if(!file) return;
+  const reader = new FileReader();
+  reader.onload = function(e){
+    const img = document.getElementById(imgId);
+    img.src = e.target.result; img.style.display='block';
+    document.getElementById(boxId).classList.add('has-img');
+    try{ localStorage.setItem('melody_pic_'+boxId, e.target.result); }catch(err){}
+  };
+  reader.readAsDataURL(file);
+}
+function loadPics(){
+  lessons.forEach(l=>{
+    const saved = localStorage.getItem('melody_pic_thumb-'+l.id);
+    if(saved){
+      const img = document.getElementById('img-'+l.id);
+      if(img){ img.src=saved; img.style.display='block'; document.getElementById('thumb-'+l.id)?.classList.add('has-img'); }
+    }
+  });
+}
+function startLesson(id){
+  const l = lessons.find(x=>x.id===id);
+  alert('🎵 '+l.title+'\n\n'+l.desc+'\n\nYour lesson content will open here. Add your notes / video link later if you want.');
+  const done = JSON.parse(localStorage.getItem('melody_done')||'[]');
+  if(!done.includes(id)){ done.push(id); localStorage.setItem('melody_done', JSON.stringify(done)); }
+  render();
+}
+function render(){
+  const q = (document.getElementById('search').value||'').toLowerCase();
+  const done = JSON.parse(localStorage.getItem('melody_done')||'[]');
+  const list = lessons.filter(l => (currentCat==='all' || l.cat===currentCat) && (l.title+' '+l.desc).toLowerCase().includes(q));
+  document.getElementById('count').textContent = '('+list.length+')';
+  document.getElementById('grid').innerHTML = list.map(l=>`
+    <div class="card">
+      <label class="thumb" id="thumb-${l.id}"><img id="img-${l.id}"><span class="thumb-text"><span>${l.emoji}</span><b>Tap to Upload Picture</b><small>For ${l.title}</small></span><input type="file" accept="image/*" onchange="uploadPic(this,'img-${l.id}','thumb-${l.id}')"><span class="cat-badge">${l.cat.toUpperCase()}</span><span class="time-badge">▶ ${l.time}</span></label>
+      <div class="card-body">
+        <h3>${l.title} ${done.includes(l.id)?'✅':''}</h3>
+        <p>${l.desc}</p>
+        <div class="meta"><span>👁 ${l.views} views</span><b>FREE</b></div>
+        <button class="start-btn" onclick="startLesson('${l.id}')">Start Lesson →</button>
+      </div>
+    </div>`).join('') || '<p style="color:var(--silver)">No lessons found. Try another search.</p>';
+  loadPics();
+}
+const u = getUser();
+if(u){ document.getElementById('userPill').innerHTML = '👤 '+u.name+' • <a href="#" onclick="localStorage.removeItem(\'melody_user\');location.reload()" style="color:var(--pink)">Logout</a>'; }
+render();
+</script>
+</body>
+</html>
