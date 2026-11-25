@@ -165,7 +165,7 @@ function detectType(val){
   else { badge.style.display='none'; icon.textContent='✉️ / 📱'; }
 }
 function isValidEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
-function isValidPhone(v){ const c=v.replace(/[\s-]/g,''); return /^(\+254|254|0)?[17]\d{8}$/.test(c) || /^\+?[0-9]{9,15}$/.test(c); }
+function isValidPhone(v){ const c=v.replace(/[\s-]/g,''); return /^\+?[0-9]{9,15}$/.test(c); }
 function togglePass(id, btnId){
   const p=document.getElementById(id); const b=document.getElementById(btnId);
   if(p.type==='password'){ p.type='text'; b.textContent='Hide'; } else { p.type='password'; b.textContent='Show'; }
