@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | Melody Academy - Home of Music</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0B0B0F;--nav:#111116;--purple:#7C3AED;--pink:#FF2E93;--white:#fff;--silver:#A1A1AA;--card:#18181F;--hover:#A855F7;--gold:#D4A017;--border:#27272A;--green:#22C55E}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--white);line-height:1.7;padding-bottom:40px}
+h1,h2,h3{font-family:'Poppins',sans-serif}
+a{text-decoration:none;color:inherit}
+.navbar{background:var(--nav);display:flex;align-items:center;justify-content:space-between;padding:12px 5%;position:sticky;top:0;z-index:100;border-bottom:1px solid var(--border)}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-mark{width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--pink));display:flex;align-items:center;justify-content:center;font-size:30px;border:2px solid var(--gold);position:relative}
+.logo-mark i{position:absolute;bottom:-3px;right:-3px;width:18px;height:18px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-style:normal;font-size:10px;color:#111;font-weight:900;border:2px solid #0B0B0F}
+.logo-text strong{display:block;font-size:19px;line-height:1}.logo-text strong span{color:var(--pink)}
+.logo-text small{display:block;font-size:10px;letter-spacing:2.5px;color:var(--silver);font-weight:700}
+.logo-text em{display:block;font-style:normal;font-size:11px;color:var(--gold);font-weight:700}
+.nav-links{display:flex;gap:20px;font-size:14px;font-weight:600;color:var(--silver);align-items:center}
+.nav-links a.active{color:#fff}.nav-links a:hover{color:var(--pink)}
+.user-pill{background:var(--card);border:1px solid var(--border);padding:8px 14px;border-radius:100px;font-size:13px;font-weight:700}
+.wrap{max-width:1100px;margin:0 auto;padding:28px 5%}
+.hero{text-align:center;padding:20px 0 30px}
+.hero .badge{display:inline-block;background:#1F0A2E;border:1px solid var(--purple);color:#D8B4FE;padding:7px 16px;border-radius:100px;font-size:12px;font-weight:800;letter-spacing:1px}
+.hero h1{font-size:clamp(30px,4.5vw,48px);margin:14px 0 10px}.hero h1 span{color:var(--pink)}
+.hero p{color:var(--silver);max-width:700px;margin:0 auto;font-size:15.5px}
+.founder{display:grid;grid-template-columns:340px 1fr;gap:24px;background:var(--card);border:1px solid var(--border);border-radius:24px;overflow:hidden;margin:10px 0 28px}
+.founder-photo{position:relative;background:#15151C;min-height:380px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;border-right:2px dashed #3F3F46;overflow:hidden;text-align:center;padding:20px}
+.founder-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none}
+.founder-photo.has-img img{display:block}.founder-photo.has-img .photo-text{display:none}
+.photo-text span{font-size:52px}.photo-text b{font-size:16px;display:block;margin-top:8px}.photo-text small{color:var(--silver);font-size:12.5px;display:block;margin-top:4px}
+.founder-photo input{display:none}
+.founder-photo .tag{position:absolute;bottom:14px;left:14px;right:14px;background:rgba(0,0,0,.75);padding:9px;border-radius:100px;font-size:12px;font-weight:700;z-index:2}
+.founder-info{padding:28px 28px 28px 0}
+.founder-info .eyebrow{color:var(--pink);font-size:12px;font-weight:800;letter-spacing:2px}
+.founder-info h2{font-size:28px;margin:6px 0 4px}.founder-info h2 span{color:var(--gold)}
+.founder-info .role{color:var(--silver);font-size:14px;font-weight:600}
+.founder-info p{color:#D4D4D8;font-size:15px;margin-top:12px}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.badge2{background:#1E1E26;border:1px solid var(--border);padding:8px 13px;border-radius:100px;font-size:12.5px;font-weight:700}
+.badge2 b{color:var(--pink)}
+.cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin:0 0 28px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:22px}
+.card span{font-size:32px}.card h3{font-size:17px;margin:10px 0 6px}.card p{color:var(--silver);font-size:14px}
+.story{background:linear-gradient(135deg,#1B1030,#2A0A2E);border:1px solid #3B1A5A;border-radius:24px;padding:30px;margin-bottom:28px}
+.story h2{font-size:24px;margin-bottom:12px}.story h2 span{color:var(--pink)}
+.story p{color:#E5E7EB;font-size:15.5px;margin-bottom:12px}
+.story p b{color:#fff}
+.quote{border-left:4px solid var(--gold);padding-left:16px;margin-top:16px;font-style:italic;color:#FDE68A;font-size:16px}
+.teach{margin-bottom:28px}.teach h2{font-size:24px;margin-bottom:14px}
+.teach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.teach-item{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:18px}
+.teach-item span{font-size:28px}.teach-item h3{font-size:15px;margin:8px 0 4px}.teach-item p{color:var(--silver);font-size:13.5px}
+.why{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:28px;margin-bottom:28px}
+.why h2{font-size:24px;margin-bottom:16px}.why h2 span{color:var(--green)}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.why-item{display:flex;gap:12px;background:#15151C;border:1px solid var(--border);border-radius:16px;padding:16px}
+.why-item span{font-size:26px}.why-item b{font-size:15px;display:block}.why-item small{color:var(--silver);font-size:13.5px}
+.cta{text-align:center;background:linear-gradient(135deg,var(--purple),var(--pink));border-radius:24px;padding:34px 20px}
+.cta h2{font-size:26px}.cta p{margin:10px auto 20px;max-width:600px}
+.btn{display:inline-block;padding:13px 26px;border-radius:100px;font-weight:800;font-size:15px}
+.btn-white{background:#fff;color:#111}.btn-dark{background:#111;color:#fff;border:1px solid rgba(255,255,255,.4);margin-left:10px}
+footer{max-width:1100px;margin:24px auto 0;padding:0 5%;text-align:center;color:var(--silver);font-size:13px}
+@media(max-width:900px){.founder{grid-template-columns:1fr}.founder-info{padding:0 22px 24px}.founder-photo{min-height:280px;border-right:0;border-bottom:2px dashed #3F3F46}.cards,.teach-grid{grid-template-columns:1fr}.why-grid{grid-template-columns:1fr}.nav-links{display:none}}
+</style>
+</head>
+<body>
+<header class="navbar">
+  <a href="index.html" class="logo"><div class="logo-mark"><span>𝄞</span><i>♪</i></div><span class="logo-text"><strong>MELODY <span>ACADEMY</span></strong><small>LEARN • PLAY • SING</small><em>Home of Music</em></span></a>
+  <nav class="nav-links"><a href="index.html">Home</a><a href="lessons.html">Lessons</a><a href="about.html" class="active">About</a><a href="join.html">Join</a><span class="user-pill" id="userPill">👤 Guest • <a href="login.html" style="color:var(--pink)">Login</a></span></nav>
+</header>
+
+<div class="wrap">
+  <div class="hero">
+    <span class="badge">✦ ABOUT MELODY ACADEMY</span>
+    <h1>Music For <span>Everyone,</span><br>Everywhere.</h1>
+    <p>Melody Academy was born from a simple belief: talent is everywhere, but opportunity is not. We are here to make quality music education affordable, practical, and available to all.</p>
+  </div>
+
+  <!-- FOUNDER -->
+  <div class="founder">
+    <label class="founder-photo" id="founderPhoto"><img id="founderImg"><span class="photo-text"><span>👨🏾‍🏫</span><b>Tap to Upload Your Photo</b><small>Dennis Gitonga<br>Founder, Melody Academy</small></span><input type="file" accept="image/*" onchange="uploadFounder(this)"><span class="tag">📸 + Upload Founder Photo</span></label>
+    <div class="founder-info">
+      <span class="eyebrow">MEET THE FOUNDER</span>
+      <h2>Dennis <span>Gitonga</span></h2>
+      <div class="role">Music Tutor • Church Trainer • Founder, Melody Academy</div>
+      <p>My name is <b>Dennis Gitonga</b>. I had a passion for music from primary school, and I started learning music in secondary school. I passed very well.</p>
+      <p>I pursued my <b>Degree in Music at Embu University</b>. Today, I am a tutor in a secondary school and a trainer in my church. I also play instruments such as keyboard and many others.</p>
+      <p>I created this website for online lessons for those who are willing and have a passion to learn music — whether you are a beginner, a student, a worship leader, or a working professional.</p>
+      <div class="badges"><span class="badge2">🎓 <b>Degree in Music</b> — Embu University</span><span class="badge2">🏫 <b>Secondary School</b> Tutor</span><span class="badge2">⛪ <b>Church</b> Trainer</span><span class="badge2">🎹 <b>Keyboard</b> & More</span></div>
+    </div>
+  </div>
+
+  <!-- MISSION / VISION / PROMISE -->
+  <div class="cards">
+    <div class="card"><span>🎯</span><h3>Our Mission</h3><p>To make music education simple, affordable, and available to everyone in all places — no matter your background, age, or location.</p></div>
+    <div class="card"><span>👀</span><h3>Our Vision</h3><p>A world where anyone with passion for music can learn, grow, and use their gift — whether in school, church, or on stage.</p></div>
+    <div class="card"><span>💛</span><h3>Our Promise</h3><p>We teach with patience, clarity, and heart. You will learn step-by-step, from your first note to playing and singing with confidence.</p></div>
+  </div>
+
+  <!-- MY STORY -->
+  <div class="story">
+    <h2>My Story — <span>From Passion To Purpose</span></h2>
+    <p>Music found me early. From <b>primary school</b>, I knew I loved music. When I got to <b>secondary school</b>, I started learning it seriously — and I passed very well.</p>
+    <p>That passion carried me to <b>Embu University</b>, where I pursued my <b>Degree in Music</b>. It was not just about passing exams. It was about understanding music deeply — so I could teach it to others.</p>
+    <p>Today, I serve as a <b>tutor in a secondary school</b> and as a <b>trainer in my church</b>. I have seen first-hand how music changes students: it builds confidence, discipline, worship, and joy.</p>
+    <p>I created <b>Melody Academy</b> because I know many people cannot afford to pay universities, and many others are doing other courses but still want to learn music. This platform is for them. <b>For you.</b></p>
+    <div class="quote">“If you have passion for music, you deserve a teacher who will walk with you — step by step. That is why Melody Academy exists.” — Dennis Gitonga</div>
+  </div>
+
+  <!-- WHAT WE TEACH -->
+  <div class="teach">
+    <h2>What We Teach</h2>
+    <div class="teach-grid">
+      <div class="teach-item"><span>🎹</span><h3>Piano / Keyboard</h3><p>From your first chords to playing full songs with both hands.</p></div>
+      <div class="teach-item"><span>🎤</span><h3>Vocal / Singing</h3><p>Warm-ups, breathing, pitch, and singing with confidence.</p></div>
+      <div class="teach-item"><span>🎶</span><h3>Solfa / Do-Re-Mi</h3><p>Learn to sing by ear, read Solfa, and lead songs easily.</p></div>
+      <div class="teach-item"><span>🎼</span><h3>Music Theory</h3><p>Notes, scales, chords, and how music really works — made simple.</p></div>
+      <div class="teach-item"><span>📖</span><h3>Reading Music</h3><p>Learn to read staff notation, rhythms, and play from sheet music.</p></div>
+      <div class="teach-item"><span>🌟</span><h3>Music Industry & Worship</h3><p>Worship leading, performance, and growing in the music ministry.</p></div>
+    </div>
+  </div>
+
+  <!-- WHY JOIN -->
+  <div class="why">
+    <h2>Why Students Should Join <span>Us</span></h2>
+    <div class="why-grid">
+      <div class="why-item"><span>💰</span><div><b>Affordable For Everyone</b><br><small>Some lessons are free, and others need a small fee. No need to pay expensive university fees to start learning.</small></div></div>
+      <div class="why-item"><span>🌍</span><div><b>Available In All Places</b><br><small>Learn online from home, school, church, or work — anywhere, anytime, on your phone.</small></div></div>
+      <div class="why-item"><span>📚</span><div><b>Learn While You Study Or Work</b><br><small>Doing another course? Working? You can still learn music online at your own pace.</small></div></div>
+      <div class="why-item"><span>👨🏾‍🏫</span><div><b>Taught By A Real Teacher</b><br><small>You are taught by a trained, experienced tutor — not random videos. Clear, step-by-step lessons.</small></div></div>
+      <div class="why-item"><span>🎹</span><div><b>Practical, Not Just Theory</b><br><small>You will play, sing, and practise from Lesson 1. Music is learned by doing.</small></div></div>
+      <div class="why-item"><span>❤️</span><div><b>We Are Ready For You</b><br><small>We are ready to teach, ready to guide you, and ready to walk with you until you grow.</small></div></div>
+    </div>
+  </div>
+
+  <div class="cta">
+    <h2>Ready To Start Your Music Journey?</h2>
+    <p>Join hundreds of learners who are learning music the easy way — affordable, practical, and from anywhere.</p>
+    <a href="lessons.html" class="btn btn-white">Browse Free Lessons →</a>
+    <a href="join.html" class="btn btn-dark">Join Melody Academy</a>
+  </div>
+</div>
+
+<footer><b style="color:#fff">MELODY ACADEMY home of music</b> • Learn • Play • Sing<br>Founded by Dennis Gitonga • © 2026 Melody Academy. All rights reserved.</footer>
+
+<script>
+function uploadFounder(input){
+  const f=input.files[0]; if(!f) return;
+  const r=new FileReader();
+  r.onload=e=>{ const img=document.getElementById('founderImg'); img.src=e.target.result; img.style.display='block'; document.getElementById('founderPhoto').classList.add('has-img'); try{ localStorage.setItem('melody_founder_pic', e.target.result); }catch(err){} };
+  r.readAsDataURL(f);
+}
+const saved = localStorage.getItem('melody_founder_pic');
+if(saved){ const img=document.getElementById('founderImg'); img.src=saved; img.style.display='block'; document.getElementById('founderPhoto').classList.add('has-img'); }
+function getUser(){ try{ return JSON.parse(localStorage.getItem('melody_user')||'null'); }catch(e){ return null; } }
+const u = getUser();
+if(u){ document.getElementById('userPill').innerHTML = '👤 '+u.name+' • <a href="#" onclick="localStorage.removeItem(\'melody_user\');location.reload()" style="color:var(--pink)">Logout</a>'; }
+</script>
+</body>
+</html>
