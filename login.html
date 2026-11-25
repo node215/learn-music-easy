@@ -164,12 +164,12 @@ input::placeholder{color:var(--silver)}
       <h2>Welcome <span>Back!</span> 👋</h2>
       <p class="sub">Login to continue learning. New here? <b>Join Free</b> </p>
 
-      <div class="error" id="errorBox">⚠️ Please enter a valid email and password (6+ characters).</div>
+      <div class="error" id="errorBox">⚠️ Please enter a valid email or phone number and password (6+ characters).</div>
       <div class="success" id="successBox">✅ Login successful! Taking you to lessons...</div>
 
       <form onsubmit="doLogin(event)">
         <label for="email">Email Address or phone number</label>
-        <div class="input-wrap"><span class="icon">✉️</span><input type="email" id="email" placeholder="you@example.com" or "0711603031" or "+25711603031"required></div>
+        <div class="input-wrap"><span class="icon">✉️</span><input type="text" id="email" placeholder="you@example.com or 0711603031" required></div>
 
         <label for="password">Password</label>
         <div class="input-wrap"><span class="icon">🔒</span><input type="password" id="password" placeholder="Enter your password" required><button type="button" class="show-btn" onclick="togglePass()" id="showBtn">Show</button></div>
@@ -213,7 +213,7 @@ function togglePass(){
 function forgotPass(e){
   e.preventDefault();
   const email = document.getElementById('email').value;
-  if(!email){ alert('Please enter your email first, then tap Forgot Password.'); document.getElementById('email').focus(); return; }
+  if(!email){ alert('Please enter your email or phone first, then tap Forgot Password.'); document.getElementById('email').focus(); return; }
   alert('Password reset link sent to ' + email + ' (Demo). Check your inbox!');
 }
 function googleLogin(){
@@ -226,11 +226,14 @@ function doLogin(e){
   const err = document.getElementById('errorBox');
   const ok = document.getElementById('successBox');
   err.style.display='none'; ok.style.display='none';
-  if(!email.includes('@') || pass.length < 6){
+  const isEmail = email.includes('@') && email.includes('.');
+  const isPhone = /^[+]?[0-9\s]{9,15}$/.test(email);
+  if((!isEmail && !isPhone) || pass.length < 6){
     err.style.display='block'; return;
   }
   // Save login - SAME KEY as index.html will use
-  const user = { name: email.split('@')[0], email: email, role: 'student', plan: 'free', loginAt: new Date().toISOString() };
+  const userName = email.includes('@') ? email.split('@')[0] : email;
+  const user = { name: userName, email: email, role: 'student', plan: 'free', loginAt: new Date().toISOString() };
   localStorage.setItem('melody_user', JSON.stringify(user));
   if(document.getElementById('remember').checked){ localStorage.setItem('melody_remember', email); }
   document.getElementById('loginBtn').textContent = 'Logging in... ⏳';
