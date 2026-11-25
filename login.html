@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login | Melody Academy - Home of Music</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800;900&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0B0B0F; --nav:#111116; --purple:#7C3AED; --pink:#FF2E93; --white:#fff;
+  --silver:#A1A1AA; --card:#18181F; --hover:#A855F7; --gold:#D4A017; --border:#27272A;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--white);min-height:100vh}
+a{text-decoration:none;color:inherit}
+
+/* ===== LAYOUT ===== */
+.wrap{display:grid;grid-template-columns:1.05fr .95fr;min-height:100vh}
+
+/* ===== LEFT SIDE - VISUAL EXPERIENCE ===== */
+.left{
+  position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;padding:28px 36px;
+  background:
+    linear-gradient(180deg, rgba(11,11,15,.25) 0%, rgba(11,11,15,.85) 75%, #0B0B0F 100%),
+    url('https://images.unsplash.com/photo-1507838153414-b4b713384a76?q=80&w=1600&auto=format&fit=crop') center/cover;
+}
+.left::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 20%, rgba(124,58,237,.45), transparent 50%), radial-gradient(circle at 90% 80%, rgba(255,46,147,.35), transparent 50%);pointer-events:none}
+.top-row{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:center}
+.logo{display:flex;align-items:center;gap:11px}
+.logo-mark{width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--pink));display:flex;align-items:center;justify-content:center;font-size:29px;border:2px solid var(--gold);box-shadow:0 8px 24px rgba(124,58,237,.5);position:relative}
+.logo-mark i{position:absolute;bottom:-3px;right:-3px;width:18px;height:18px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-style:normal;font-size:10px;color:#111;font-weight:900;border:2px solid #0B0B0F}
+.logo-text strong{display:block;font-size:18px;line-height:1;font-family:'Poppins',sans-serif}
+.logo-text strong span{color:var(--pink)}
+.logo-text small{display:block;font-size:9px;letter-spacing:2.5px;color:#E5E7EB;font-weight:700;margin-top:2px}
+.logo-text em{display:block;font-style:normal;font-size:10px;color:var(--gold);font-weight:700}
+.back-home{font-size:13px;font-weight:600;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.25);padding:9px 14px;border-radius:100px;backdrop-filter:blur(6px)}
+.back-home:hover{border-color:var(--pink);color:var(--pink)}
+
+.left-middle{position:relative;z-index:2;margin-top:40px}
+.pill{display:inline-block;background:rgba(255,46,147,.9);color:#fff;padding:7px 13px;border-radius:100px;font-size:11px;font-weight:800;letter-spacing:1px}
+.left-middle h1{font-family:'Poppins',sans-serif;font-size:clamp(32px,4vw,48px);line-height:1.1;margin:16px 0 12px}
+.left-middle h1 em{font-style:normal;background:linear-gradient(90deg,#fff,var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.left-middle p{color:#E5E7EB;font-size:15px;max-width:480px;line-height:1.6}
+.quote{font-family:'Playfair Display',serif;font-style:italic;color:var(--gold);font-size:17px;margin-top:12px}
+
+/* EQUALIZER */
+.equalizer{display:flex;gap:5px;align-items:flex-end;height:52px;margin:22px 0 14px}
+.equalizer i{display:block;width:7px;background:linear-gradient(180deg,var(--pink),var(--purple));border-radius:100px;animation:eq 1s ease-in-out infinite}
+.equalizer i:nth-child(1){height:30%;animation-delay:0s}.equalizer i:nth-child(2){height:70%;animation-delay:.1s}.equalizer i:nth-child(3){height:45%;animation-delay:.2s}.equalizer i:nth-child(4){height:90%;animation-delay:.05s}.equalizer i:nth-child(5){height:55%;animation-delay:.3s}.equalizer i:nth-child(6){height:80%;animation-delay:.15s}.equalizer i:nth-child(7){height:35%;animation-delay:.25s}.equalizer i:nth-child(8){height:65%;animation-delay:.05s}.equalizer i:nth-child(9){height:95%;animation-delay:.35s}.equalizer i:nth-child(10){height:50%;animation-delay:.1s}.equalizer i:nth-child(11){height:75%;animation-delay:.2s}.equalizer i:nth-child(12){height:40%;animation-delay:0s}
+@keyframes eq{0%,100%{transform:scaleY(.6)}50%{transform:scaleY(1)}}
+.eq-label{font-size:12px;letter-spacing:2px;font-weight:700;color:#fff}
+.eq-label span{color:var(--pink)}
+
+.left-bottom{position:relative;z-index:2}
+.promo{background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(10px);border-radius:18px;padding:16px;display:flex;gap:14px;align-items:center}
+.promo .icon{width:52px;height:52px;border-radius:14px;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0}
+.promo b{font-size:14px}.promo p{font-size:12.5px;color:#D4D4D8;margin-top:2px}
+.promo .go{background:#fff;color:#111;padding:9px 14px;border-radius:100px;font-size:12px;font-weight:800;white-space:nowrap}
+.now-playing{display:flex;justify-content:space-between;align-items:center;margin-top:14px;font-size:12px;color:#E5E7EB;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);padding:10px 14px;border-radius:100px}
+.now-playing b{color:#fff}.now-playing span:last-child{color:var(--gold);font-weight:800}
+
+/* ===== RIGHT SIDE - LOGIN FORM ===== */
+.right{display:flex;align-items:center;justify-content:center;padding:32px 5%;background:var(--bg);position:relative;overflow:hidden}
+.right::before{content:"";position:absolute;width:320px;height:320px;background:radial-gradient(circle,rgba(124,58,237,.28),transparent 70%);top:-80px;right:-80px;pointer-events:none}
+.form-box{width:100%;max-width:430px;position:relative;z-index:2}
+.mobile-logo{display:none;align-items:center;gap:10px;margin-bottom:20px;justify-content:center}
+.form-box h2{font-family:'Poppins',sans-serif;font-size:30px}
+.form-box h2 span{color:var(--pink)}
+.form-box .sub{color:var(--silver);font-size:14px;margin:6px 0 22px}
+.form-box .sub b{color:var(--gold)}
+
+label{display:block;font-size:13px;font-weight:600;margin:16px 0 8px;color:#E5E7EB}
+.input-wrap{position:relative}
+.input-wrap .icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:17px;opacity:.8}
+input[type="email"], input[type="password"], input[type="text"]{
+  width:100%;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px 14px 14px 42px;color:#fff;font-size:15px;font-family:inherit;outline:none;transition:.2s
+}
+input:focus{border-color:var(--purple);box-shadow:0 0 0 3px rgba(124,58,237,.25);background:#1E1E28}
+input::placeholder{color:var(--silver)}
+.show-btn{position:absolute;right:10px;top:50%;transform:translateY(-50%);background:#27272A;border:0;color:#fff;padding:7px 11px;border-radius:100px;font-size:12px;font-weight:700;cursor:pointer}
+.show-btn:hover{background:var(--purple)}
+
+.row{display:flex;justify-content:space-between;align-items:center;margin:16px 0;font-size:13.5px;flex-wrap:wrap;gap:8px}
+.check{display:flex;gap:8px;align-items:center;color:var(--silver);cursor:pointer}
+.check input{width:17px;height:17px;accent-color:var(--purple);cursor:pointer}
+.forgot{color:var(--pink);font-weight:700}.forgot:hover{text-decoration:underline}
+
+.btn{width:100%;padding:15px;border:0;border-radius:100px;font-weight:800;font-size:15px;cursor:pointer;transition:.25s}
+.btn-purple{background:var(--purple);color:#fff}
+.btn-purple:hover{background:var(--hover);transform:translateY(-2px);box-shadow:0 12px 28px rgba(168,85,247,.4)}
+.btn:disabled{opacity:.6;cursor:not-allowed;transform:none}
+
+.divider{display:flex;align-items:center;gap:12px;margin:20px 0;color:var(--silver);font-size:12px;font-weight:700}
+.divider::before,.divider::after{content:"";flex:1;height:1px;background:var(--border)}
+.btn-google{background:#fff;color:#111;display:flex;align-items:center;justify-content:center;gap:10px}
+.btn-google:hover{transform:translateY(-2px)}
+.btn-google span{font-size:18px}
+
+.demo{margin-top:16px;background:#1E1E28;border:1px dashed #4C1D95;border-radius:14px;padding:14px;text-align:center}
+.demo b{font-size:13px;color:var(--gold)}.demo p{font-size:12px;color:var(--silver);margin:4px 0 10px}
+.demo-btns{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.demo-btns button{padding:9px 14px;border-radius:100px;border:1px solid #3F3F46;background:#111;color:#fff;font-size:12px;font-weight:700;cursor:pointer}
+.demo-btns button:hover{border-color:var(--pink);color:var(--pink)}
+
+.signup{text-align:center;margin-top:20px;font-size:14px;color:var(--silver)}
+.signup a{color:var(--pink);font-weight:800}.signup a:hover{text-decoration:underline}
+.trust{display:flex;gap:8px;justify-content:center;margin-top:16px;flex-wrap:wrap}
+.trust span{background:var(--card);border:1px solid var(--border);padding:7px 11px;border-radius:100px;font-size:11px;color:var(--silver)}
+.error{display:none;background:#3B0A2A;border:1px solid var(--pink);color:#FFD1E5;padding:11px 14px;border-radius:12px;font-size:13px;margin-bottom:12px}
+.success{display:none;background:#052E1A;border:1px solid #22C55E;color:#D1FAE5;padding:11px 14px;border-radius:12px;font-size:13px;margin-bottom:12px}
+
+@media(max-width:900px){
+  .wrap{grid-template-columns:1fr}
+  .left{min-height:420px;padding:22px}
+  .left-middle h1{font-size:32px}
+  .mobile-logo{display:flex}
+  .right{padding:28px 5% 40px}
+}
+@media(max-width:560px){.left{padding:18px}.promo{flex-direction:column;text-align:center}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- LEFT SIDE -->
+  <div class="left">
+    <div class="top-row">
+      <a href="index.html" class="logo">
+        <div class="logo-mark"><span>𝄞</span><i>♪</i></div>
+        <span class="logo-text"><strong>MELODY <span>ACADEMY</span></strong><small>LEARN • PLAY • SING</small><em>HOME OF MUSIC</em></span>
+      </a>
+      <a href="index.html" class="back-home">← Back Home</a>
+    </div>
+
+    <div class="left-middle">
+      <span class="pill">🎵 WELCOME TO MELODY ACADEMY</span>
+      <h1>Welcome Back<br>to the <em>Home of Music.</em></h1>
+      <p>Your lessons, your piano, your voice — all waiting for you. Pick up where you left off and keep growing.</p>
+      <div class="quote">“Music is not just sound. It is a language.”</div>
+
+      <div class="equalizer"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="eq-label">🎧 NOW PLAYING • <span>MELODY ACADEMY RADIO</span></div>
+    </div>
+
+    <div class="left-bottom">
+      <div class="promo">
+        <div class="icon">⭐</div>
+        <div style="flex:1"><b>Special Offer — 50% OFF Premium!</b><p>Get ALL 120+ lessons + PDFs + 1-on-1 coaching for KSh 999/month. Offer ends soon.</p></div>
+        <a href="join.html" class="go">Claim →</a>
+      </div>
+      <div class="now-playing"><span>🎹 <b>Trending:</b> Piano 1 - Your First 3 Chords</span><span>★ 4.9 • 12k learners</span></div>
+    </div>
+  </div>
+
+  <!-- RIGHT SIDE -->
+  <div class="right">
+    <div class="form-box">
+      <div class="mobile-logo">
+        <div class="logo-mark" style="width:46px;height:46px;font-size:26px"><span>𝄞</span><i>♪</i></div>
+        <span class="logo-text"><strong>MELODY <span>ACADEMY</span></strong><small>HOME OF MUSIC</small></span>
+      </div>
+
+      <h2>Welcome <span>Back!</span> 👋</h2>
+      <p class="sub">Login to continue learning. New here? <b>Join Free</b> </p>
+
+      <div class="error" id="errorBox">⚠️ Please enter a valid email and password (6+ characters).</div>
+      <div class="success" id="successBox">✅ Login successful! Taking you to lessons...</div>
+
+      <form onsubmit="doLogin(event)">
+        <label for="email">Email Address or phone number</label>
+        <div class="input-wrap"><span class="icon">✉️</span><input type="email" id="email" placeholder="you@example.com" or "0711603031" or "+25711603031"required></div>
+
+        <label for="password">Password</label>
+        <div class="input-wrap"><span class="icon">🔒</span><input type="password" id="password" placeholder="Enter your password" required><button type="button" class="show-btn" onclick="togglePass()" id="showBtn">Show</button></div>
+
+        <div class="row">
+          <label class="check"><input type="checkbox" id="remember" checked> Remember Me</label>
+          <a href="#" class="forgot" onclick="forgotPass(event)">Forgot Password?</a>
+        </div>
+
+        <button type="submit" class="btn btn-purple" id="loginBtn">Sign In →</button>
+      </form>
+
+      <div class="divider">OR CONTINUE WITH</div>
+      <button class="btn btn-google" onclick="googleLogin()"><span>G</span> Continue with Google</button>
+
+      <div class="demo">
+        <b>🎹 Try Demo Login — No Account Needed</b>
+        <p>Tap one to test the website instantly:</p>
+        <div class="demo-btns">
+          <button onclick="demoLogin('student')">🎓 Student Demo</button>
+          <button onclick="demoLogin('premium')">⭐ Premium Demo</button>
+          <button onclick="demoLogin('teacher')">🎼 Teacher Demo</button>
+        </div>
+      </div>
+
+      <p class="signup">Don't have an account? <a href="join.html">Create Account →</a></p>
+      <div class="trust"><span>🔒 Secure Login</span><span>📱 Works on Phone</span><span>⭐ 4.9 Rated</span></div>
+      <p style="text-align:center;font-size:11px;color:var(--silver);margin-top:12px">By logging in you agree to our Terms & Privacy Policy. © 2026 Melody Academy.</p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function togglePass(){
+  const p = document.getElementById('password');
+  const b = document.getElementById('showBtn');
+  if(p.type === 'password'){ p.type='text'; b.textContent='Hide'; }
+  else { p.type='password'; b.textContent='Show'; }
+}
+function forgotPass(e){
+  e.preventDefault();
+  const email = document.getElementById('email').value;
+  if(!email){ alert('Please enter your email first, then tap Forgot Password.'); document.getElementById('email').focus(); return; }
+  alert('Password reset link sent to ' + email + ' (Demo). Check your inbox!');
+}
+function googleLogin(){
+  alert('Google Login will work after you connect Google. For now, use Demo Login below.');
+}
+function doLogin(e){
+  e.preventDefault();
+  const email = document.getElementById('email').value.trim();
+  const pass = document.getElementById('password').value.trim();
+  const err = document.getElementById('errorBox');
+  const ok = document.getElementById('successBox');
+  err.style.display='none'; ok.style.display='none';
+  if(!email.includes('@') || pass.length < 6){
+    err.style.display='block'; return;
+  }
+  // Save login - SAME KEY as index.html will use
+  const user = { name: email.split('@')[0], email: email, role: 'student', plan: 'free', loginAt: new Date().toISOString() };
+  localStorage.setItem('melody_user', JSON.stringify(user));
+  if(document.getElementById('remember').checked){ localStorage.setItem('melody_remember', email); }
+  document.getElementById('loginBtn').textContent = 'Logging in... ⏳';
+  document.getElementById('loginBtn').disabled = true;
+  ok.style.display='block';
+  setTimeout(()=>{ window.location.href='lessons.html'; }, 1200);
+}
+function demoLogin(type){
+  let user;
+  if(type==='premium'){ user={name:'Premium Student', email:'premium@melody.com', role:'student', plan:'premium'}; }
+  else if(type==='teacher'){ user={name:'Dennis Gitonga', email:'teacher@melody.com', role:'teacher', plan:'premium'}; }
+  else { user={name:'Demo Student', email:'student@melody.com', role:'student', plan:'free'}; }
+  localStorage.setItem('melody_user', JSON.stringify(user));
+  alert('Welcome, ' + user.name + '! Demo login successful.');
+  window.location.href='lessons.html';
+}
+// Auto-fill if Remember Me was used
+window.onload = function(){
+  const saved = localStorage.getItem('melody_remember');
+  if(saved) document.getElementById('email').value = saved;
+};
+</script>
+</body>
+</html>

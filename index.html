@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S |Melody Academy Learn Music The Easy Way</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800;900&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0B0B0F; --nav:#111116; --purple:#7C3AED; --pink:#FF2E93; --white:#fff;
+  --silver:#A1A1AA; --card:#18181F; --hover:#A855F7; --gold:#D4A017; --border:#27272A;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{overflow-x:hidden;width:100%}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--white);line-height:1.6;padding-bottom:92px}
+h1,h2,h3{font-family:'Poppins',sans-serif;line-height:1.15}
+a{text-decoration:none;color:inherit}
+
+/* ===== TOPBAR + NAV - NO LOGIN HERE ===== */
+.topbar{background:#000;display:flex;justify-content:space-between;padding:8px 5%;font-size:12px;color:var(--silver);flex-wrap:wrap;gap:6px}
+.topbar b{color:#fff}.topbar span:last-child{color:var(--pink);font-weight:700}
+.navbar{background:var(--nav);display:flex;align-items:center;justify-content:space-between;padding:12px 5%;position:sticky;top:0;z-index:100;border-bottom:1px solid var(--border)}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-mark{width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--pink));display:flex;align-items:center;justify-content:center;position:relative;box-shadow:0 8px 24px rgba(124,58,237,.5);border:2px solid var(--gold);flex-shrink:0}
+.logo-mark span{font-size:32px;line-height:1;margin-top:-4px}
+.logo-mark i{position:absolute;bottom:-4px;right:-4px;width:20px;height:20px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-style:normal;font-size:11px;color:#111;font-weight:900;border:2px solid #0B0B0F}
+.logo-text strong{display:block;font-size:20px;line-height:1;letter-spacing:.2px}
+.logo-text strong span{color:var(--pink)}
+.logo-text small{display:block;font-size:10px;letter-spacing:2.5px;color:var(--silver);font-weight:700;margin-top:2px}
+.logo-text em{display:block;font-style:normal;font-size:11px;color:var(--gold);font-weight:700;margin-top:1px}
+.nav-links{display:flex;gap:22px;font-size:14px;font-weight:600;color:var(--silver)}
+.nav-links a.active{color:#fff}.nav-links a:hover{color:var(--pink)}
+
+/* ===== SLIDER ===== */
+.slider-wrap{max-width:1180px;margin:22px auto;padding:0 5%;position:relative}
+.slider{position:relative;height:520px;border-radius:28px;overflow:hidden;background:var(--card);border:1px solid var(--border);box-shadow:0 20px 60px rgba(0,0,0,.6)}
+.slide{position:absolute;inset:0;padding:36px 42px;display:none;align-items:center;gap:28px;overflow:hidden}
+.slide.active{display:flex}
+.slide-left{flex:1.05;position:relative;z-index:5}
+.slide-right{flex:.95;position:relative;z-index:5;display:flex;align-items:center;justify-content:center}
+.kicker{display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);padding:7px 13px;border-radius:100px;font-size:11px;font-weight:800;letter-spacing:1px}
+.slide h1{font-size:clamp(32px,4.5vw,50px);margin:14px 0 12px}
+.slide h1 em{font-style:normal;background:linear-gradient(90deg,var(--purple),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.slide h1 i{font-style:normal;color:var(--gold)}
+.slide p{color:var(--silver);font-size:15.5px;max-width:520px}
+.slide-btns{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+.btn{padding:13px 22px;border-radius:100px;font-weight:700;font-size:14px;display:inline-block;text-align:center;cursor:pointer;border:0;transition:.25s}
+.btn-purple{background:var(--purple);color:#fff}.btn-purple:hover{background:var(--hover);transform:translateY(-2px);box-shadow:0 10px 25px rgba(168,85,247,.4)}
+.btn-pink{background:var(--pink);color:#fff}.btn-pink:hover{transform:translateY(-2px);background:#FF4FA8}
+.btn-ghost{border:1.5px solid #3F3F46;color:#fff;background:transparent}.btn-ghost:hover{border-color:var(--purple);color:var(--pink)}
+.btn-gold{background:var(--gold);color:#111}.btn-gold:hover{transform:translateY(-2px)}
+.slide-stats{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
+.slide-stats div{background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.15);padding:10px 14px;border-radius:12px}
+.slide-stats strong{display:block;font-size:18px}.slide-stats span{font-size:11px;color:var(--silver)}
+
+/* SLIDE 1 - CURTAIN */
+.s1{background:linear-gradient(135deg,#1A0B2E,#0B0B0F 60%)}
+.curtain{position:absolute;inset:0;z-index:3;pointer-events:none;display:flex}
+.curtain i{display:block;flex:1;background:linear-gradient(180deg,var(--purple),#2E1065);transition:transform 1.1s cubic-bezier(.7,0,.2,1)}
+.curtain i:nth-child(2){background:linear-gradient(180deg,var(--pink),#7A0A3A)}
+.slide.active .curtain i{transform:translateY(-101%)}
+.slide.active .curtain i:nth-child(2){transition-delay:.15s}
+.s1 .big-clef{font-size:170px;line-height:1;filter:drop-shadow(0 20px 40px rgba(124,58,237,.6));animation:float 3s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-12px) rotate(3deg)}}
+.s1 .by{margin-top:10px;font-family:'Playfair Display',serif;font-style:italic;color:var(--gold);font-size:18px}
+
+/* SLIDE 2 - PARTICLE EXPLOSION */
+.s2{background:linear-gradient(135deg,#0F0A1A,#1A0B2E)}
+.particles{position:absolute;inset:0;pointer-events:none}
+.particles i{position:absolute;width:8px;height:8px;border-radius:50%;background:var(--pink);opacity:0}
+.slide.active .particles i{animation:explode 1.2s ease-out forwards}
+@keyframes explode{0%{transform:translate(0,0) scale(1);opacity:1}100%{transform:translate(var(--x),var(--y)) scale(0);opacity:0}}
+.artist-card{background:#fff;color:#111;border-radius:20px;padding:18px;width:280px;text-align:center;box-shadow:0 20px 50px rgba(0,0,0,.5);transform:rotate(2deg)}
+.artist-card .ava{width:90px;height:90px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--pink));display:flex;align-items:center;justify-content:center;font-size:44px;margin:0 auto 10px;border:3px solid var(--gold)}
+.artist-card b{font-size:17px}.artist-card p{color:#666;font-size:13px}.artist-card span{background:#FFF6D6;color:#7A5A00;padding:5px 10px;border-radius:100px;font-size:11px;font-weight:800}
+.mini-artists{display:flex;gap:10px;margin-top:14px;justify-content:center}
+.mini-artists div{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);padding:8px 12px;border-radius:100px;font-size:12px;font-weight:600}
+
+/* SLIDE 3 - 3D CUBE */
+.s3{background:linear-gradient(135deg,#0B0B0F,#1E1B2E)}
+.cube-scene{perspective:900px;width:200px;height:200px;margin:0 auto}
+.cube{width:200px;height:200px;position:relative;transform-style:preserve-3d;animation:spinCube 10s linear infinite}
+@keyframes spinCube{from{transform:rotateX(-18deg) rotateY(0)}to{transform:rotateX(-18deg) rotateY(360deg)}}
+.face{position:absolute;width:200px;height:200px;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:34px;font-weight:800;border:2px solid rgba(255,255,255,.25);backdrop-filter:blur(4px)}
+.face small{font-size:12px;margin-top:6px}
+.face:nth-child(1){transform:translateZ(100px);background:rgba(124,58,237,.85)}
+.face:nth-child(2){transform:rotateY(90deg) translateZ(100px);background:rgba(255,46,147,.85)}
+.face:nth-child(3){transform:rotateY(180deg) translateZ(100px);background:rgba(0,191,166,.85)}
+.face:nth-child(4){transform:rotateY(270deg) translateZ(100px);background:rgba(212,160,23,.9);color:#111}
+.face:nth-child(5){transform:rotateX(90deg) translateZ(100px);background:rgba(59,130,246,.85)}
+.face:nth-child(6){transform:rotateX(-90deg) translateZ(100px);background:rgba(217,70,239,.85)}
+.cube-note{text-align:center;margin-top:18px;color:var(--silver);font-size:13px}.cube-note b{color:var(--pink)}
+
+/* SLIDE 4 - ZOOM */
+.s4{background:linear-gradient(135deg,#2E0A1A,#0B0B0F)}
+.slide.active .zoom-box{animation:zoomIn 1s cubic-bezier(.2,.9,.3,1.2) both}
+@keyframes zoomIn{0%{transform:scale(.6);filter:blur(12px);opacity:0}100%{transform:scale(1);filter:blur(0);opacity:1}}
+.zoom-box{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:20px;width:300px}
+.zoom-box .thumb{height:140px;border-radius:14px;background:linear-gradient(135deg,var(--purple),var(--pink));display:flex;align-items:center;justify-content:center;font-size:58px;position:relative}
+.zoom-box .thumb span{position:absolute;top:10px;right:10px;background:#000;color:#fff;padding:5px 10px;border-radius:100px;font-size:11px;font-weight:800}
+.trend-list{margin-top:14px;display:flex;flex-direction:column;gap:8px}
+.trend-list div{display:flex;justify-content:space-between;background:#0B0B0F;border:1px solid var(--border);padding:10px 12px;border-radius:12px;font-size:13px}
+.trend-list b{color:var(--pink)}
+
+/* SLIDE 5 - SHATTER GLASS */
+.s5{background:linear-gradient(135deg,#1A0B2E,#0B0B0F)}
+.shards{position:absolute;inset:0;pointer-events:none}
+.shards i{position:absolute;width:44px;height:44px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);opacity:0}
+.slide.active .shards i{animation:shatter 1s ease-out forwards}
+@keyframes shatter{0%{transform:translate(0,0) rotate(0);opacity:1}100%{transform:translate(var(--x),var(--y)) rotate(220deg);opacity:0}}
+.promo-card{background:linear-gradient(135deg,#FFF8E7,#FFE88A);color:#111;border-radius:22px;padding:22px;width:290px;text-align:center;box-shadow:0 20px 50px rgba(212,160,23,.4)}
+.promo-card h3{color:#111;font-size:20px}.promo-card .price{font-size:36px;font-weight:900;margin:8px 0}.promo-card .price small{font-size:14px;color:#666}.promo-card p{color:#555;font-size:13px}
+
+/* DOTS + ARROWS */
+.dots{display:flex;gap:8px;justify-content:center;margin-top:16px}
+.dot{width:10px;height:10px;border-radius:50%;background:#3F3F46;cursor:pointer;transition:.25s;border:0}
+.dot.active{width:28px;border-radius:100px;background:linear-gradient(90deg,var(--purple),var(--pink))}
+.arrows{position:absolute;top:50%;left:14px;right:14px;transform:translateY(-50%);display:flex;justify-content:space-between;pointer-events:none;z-index:10}
+.arrows button{pointer-events:auto;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(0,0,0,.5);color:#fff;font-size:18px;cursor:pointer;backdrop-filter:blur(6px)}
+.arrows button:hover{background:var(--purple)}
+
+/* SECTIONS BELOW SLIDER */
+.section{padding:34px 5%;max-width:1180px;margin:0 auto}
+.section-head{margin-bottom:18px}.section-head h2{font-size:clamp(24px,3.5vw,32px)}.section-head h2 span{color:var(--pink)}.section-head p{color:var(--silver);font-size:14px;margin-top:6px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:20px;transition:.25s}
+.card:hover{transform:translateY(-4px);border-color:var(--hover);box-shadow:0 16px 30px rgba(168,85,247,.25)}
+.card .icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:12px;background:#2E1065}
+.card h3{font-size:16px}.card p{color:var(--silver);font-size:13.5px}.card b{color:var(--pink);font-size:12px;display:block;margin-top:10px}
+.piano-box{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:24px;text-align:center}
+.piano{display:flex;justify-content:center;gap:4px;flex-wrap:wrap;margin-top:16px}
+.key{width:52px;height:130px;background:#fff;border-radius:0 0 10px 10px;color:#111;display:flex;align-items:flex-end;justify-content:center;padding-bottom:10px;font-weight:800;font-size:13px;cursor:pointer;border:2px solid #E5E7EB}
+.key:active,.key.playing{background:var(--pink);color:#fff;transform:translateY(4px)}
+.key.black{width:36px;height:82px;background:#111;color:#fff;margin-left:-20px;margin-right:-20px;z-index:2}
+.now{margin-top:12px;color:var(--silver);font-size:14px}.now b{color:var(--pink)}
+footer{background:#000;border-top:1px solid var(--border);padding:26px 5% 20px;text-align:center;color:var(--silver);font-size:13px;line-height:1.8}
+footer b{color:#fff}
+
+/* BOTTOM - LOGIN & SIGNUP ONLY HERE */
+.bottom-auth{position:fixed;bottom:0;left:0;right:0;z-index:100;background:rgba(17,17,22,.97);backdrop-filter:blur(10px);border-top:1px solid var(--border);padding:12px 5%;display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap}
+.bottom-auth .txt{font-size:14px;font-weight:600}.bottom-auth .txt b{color:var(--pink)}
+.bottom-auth .btn{padding:11px 22px}
+.btn-outline{background:transparent;border:1.5px solid #fff;color:#fff}.btn-outline:hover{border-color:var(--pink);color:var(--pink)}
+@media(max-width:900px){
+  .slide{flex-direction:column;padding:28px 22px;text-align:center;height:auto}
+  .slider{height:auto;min-height:560px}
+  .slide-left,.slide-right{width:100%}.slide p{margin:0 auto}
+  .slide-btns,.slide-stats{justify-content:center}
+  .nav-links{display:none}
+  .grid3{grid-template-columns:1fr 1fr}
+  .bottom-auth .txt{width:100%;text-align:center}
+}
+@media(max-width:560px){.grid3{grid-template-columns:1fr}.key{width:36px}.key.black{width:28px}.slider{height:auto}}
+</style>
+</head>
+<body>
+
+<div class="topbar"><span><b>MELODY ACADEMY</b> • Home of music </span></div>
+
+<header class="navbar">
+  <div class="logo">
+    <div class="logo-mark"><span>𝄞</span><i>♪</i></div>
+    <span class="logo-text"><strong>MELODY <span>ACADEMY</span></strong><small>LEARN • PLAY • SING</small><em> Home of Music</em></span>
+  </div>
+  <nav class="nav-links"><a href="index.html" class="active">Home</a><a href="lessons.html">Lessons</a><a href="about.html">About </a><a href="join.html">Join</a></nav>
+</header>
+
+<!-- ===== SLIDER ===== -->
+<div class="slider-wrap">
+  <div class="slider" id="slider">
+
+    <!-- SLIDE 1 - CURTAIN / WELCOME -->
+    <div class="slide s1 active">
+      <div class="curtain"><i></i><i></i></div>
+      <div class="slide-left">
+        <span class="kicker">✨ WELCOME • MELODY ACADEMY</span>
+        <h1>Welcome to<br><em>Melody Academy</em><br>home of music</h1>
+        <p>Learn Music Theory, How to Read Music, Piano, Vocal Training & Solfège — from zero to stage, step by step.</p>
+        <div class="by">“Music is not just sound. It is a language. I will teach you to speak it.” </div>
+        <div class="slide-btns"><a href="lessons.html" class="btn btn-purple">🎼 Start Learning Free</a><a href="#piano" class="btn btn-ghost">🎹 Try Piano ↓</a></div>
+        <div class="slide-stats"><div><strong>120+</strong><span>Lessons</span></div><div><strong>6</strong><span>Categories</span></div><div><strong>4.9 ★</strong><span>Rating</span></div></div>
+      </div>
+      <div class="slide-right"><div style="text-align:center"><div class="big-clef">𝄞</div><div style="font-size:22px;font-weight:800;margin-top:6px">MELODY <span style="color:var(--pink)">ACADEMY</span></div><div style="color:var(--gold);font-size:12px;letter-spacing:3px;font-weight:800">BY DENNIS GITONGA</div></div></div>
+    </div>
+
+    <!-- SLIDE 2 - PARTICLE EXPLOSION / FEATURED ARTISTS -->
+    <div class="slide s2">
+      <div class="particles" id="particles"></div>
+      <div class="slide-left">
+        <span class="kicker" style="background:var(--pink);color:#fff;border:0">🌟 FEATURED ARTISTS</span>
+        <h1>Learn From<br><em>Real Musicians.</em></h1>
+        <p>Featured artists, worship leaders & piano players share their journey — and teach you their secrets.</p>
+        <div class="mini-artists"><div>🎤 Mary W. — Vocal</div><div>🎹 Kevin O. — Piano</div><div>🎶 Dennis G. — Solfa</div></div>
+        <div class="slide-btns"><a href="about.html" class="btn btn-pink">About →</a><a href="lessons.html" class="btn btn-ghost">Watch Lessons</a></div>
+      </div>
+      <div class="slide-right">
+        <div class="artist-card"><div class="ava">🎤</div><b>Dennis Gitonga</b><p>Founder • Piano • Vocal • Solfa</p><p style="margin:10px 0">“I started with one piano. Now I teach hundreds to sing & play.”</p><span>⭐ FEATURED ARTIST</span></div>
+      </div>
+    </div>
+
+    <!-- SLIDE 3 - 3D CUBE / CATEGORIES -->
+    <div class="slide s3">
+      <div class="slide-left">
+        <span class="kicker">🎼 6 CATEGORIES • ONE PLACE</span>
+        <h1>Pick Your<br><i>Instrument.</i></h1>
+        <p>Music Theory, Reading Music, Piano, Vocal, Solfa & Music Industry — all in one place.</p>
+        <div class="slide-btns"><a href="lessons.html" class="btn btn-purple">Browse All Categories →</a></div>
+        <div class="slide-stats"><div><strong>🎼</strong><span>Theory</span></div><div><strong>🎹</strong><span>Piano</span></div><div><strong>🎤</strong><span>Vocal</span></div></div>
+      </div>
+      <div class="slide-right" style="flex-direction:column">
+        <div class="cube-scene"><div class="cube">
+          <div class="face">🎼<small>THEORY</small></div><div class="face">🎹<small>PIANO</small></div><div class="face">🎤<small>VOCAL</small></div><div class="face">🎶<small>SOLFA</small></div><div class="face">📖<small>READING</small></div><div class="face">🌟<small>INDUSTRY</small></div>
+        </div></div>
+        <div class="cube-note">Cube is spinning — <b>6 sides = 6 categories</b></div>
+      </div>
+    </div>
+
+    <!-- SLIDE 4 - ZOOM / TRENDING -->
+    <div class="slide s4">
+      <div class="slide-left">
+        <span class="kicker" style="background:#fff;color:#111;border:0">🔥 TRENDING NOW</span>
+        <h1>Trending<br><em>Music Lessons.</em></h1>
+        <p>These are the lessons everyone is watching this week. Start with the most loved one.</p>
+        <div class="slide-btns"><a href="lessons.html" class="btn btn-pink">Watch Trending →</a></div>
+      </div>
+      <div class="slide-right">
+        <div class="zoom-box">
+          <div class="thumb">🎹<span>🔥 TRENDING #1</span></div>
+          <h3 style="margin-top:12px">Piano 1: Your First 3 Chords</h3>
+          <p style="color:var(--silver);font-size:13px">Learn C, F & G in 12 minutes. Play your first song today.</p>
+          <div class="trend-list">
+            <div><span>1. 🎹 First 3 Chords</span><b>12k views</b></div>
+            <div><span>2. 🎶 Solfa Made Easy</span><b>9.8k views</b></div>
+            <div><span>3. 🎤 Warm Up Voice</span><b>8.2k views</b></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 5 - SHATTER GLASS / PROMOTION -->
+    <div class="slide s5">
+      <div class="shards" id="shards"></div>
+      <div class="slide-left">
+        <span class="kicker" style="background:var(--gold);color:#111;border:0">💥 SPECIAL PROMOTION • LIMITED</span>
+        <h1>Premium For<br><i>Less.</i> Learn More.</h1>
+        <p>Glass price shattered! Get ALL 120+ lessons, PDFs, and 1-on-1 WhatsApp coaching with Dennis for a special launch price.</p>
+        <div class="slide-btns"><a href="join.html" class="btn btn-gold">Claim Offer →</a><a href="lessons.html" class="btn btn-ghost">Try Free First</a></div>
+      </div>
+      <div class="slide-right">
+        <div class="promo-card"><span style="background:#111;color:#fff;padding:6px 12px;border-radius:100px;font-size:11px;font-weight:800">LIMITED OFFER</span><h3 style="margin-top:12px">⭐ PREMIUM PRO</h3><div class="price">KSh 999 <small>/ month</small></div><p>Was KSh 1,999 — Now <b>50% OFF</b><br>All Lessons + PDFs + Coaching + Certificate</p><a href="join.html" class="btn btn-purple" style="width:100%;margin-top:14px">Go Premium →</a></div>
+      </div>
+    </div>
+
+    <div class="arrows"><button onclick="prevSlide()">‹</button><button onclick="nextSlide()">›</button></div>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+
+<!-- QUICK CATEGORIES -->
+<section class="section">
+  <div class="section-head"><h2>Explore By <span>Category</span></h2><p>Pick what you love. Start from Beginner, grow to Advanced.</p></div>
+  <div class="grid3">
+    <div class="card"><div class="icon">🎼</div><h3>Music Theory</h3><p>Notes, Scales, Chords, Keys & Time Signatures</p><b></b></div>
+    <div class="card"><div class="icon">📖</div><h3>How To Read Music</h3><p>Treble, Bass, Staff, Note Values & Rests</p><b></b></div>
+    <div class="card"><div class="icon">🎹</div><h3>Piano Lessons</h3><p>Finger Position, Chords, Playing By Ear</p><b></b></div>
+    <div class="card"><div class="icon">🎤</div><h3>Vocal Training</h3><p>Breathing, Warm-ups, Pitch, Range & Harmony</p><b></b></div>
+    <div class="card"><div class="icon">🎶</div><h3>Solfège / Solfa</h3><p>Do Re Mi, Tonic Solfa & Sight Singing</p><b></b></div>
+    <div class="card"><div class="icon">🌟</div><h3>Music Industry</h3><p>Recording, Worship Leading & Music Career</p><b></b></div>
+  </div>
+</section>
+
+<!-- PIANO -->
+<section class="section" id="piano" style="padding-top:0">
+  <div class="piano-box">
+    <span style="background:var(--pink);padding:6px 12px;border-radius:100px;font-size:11px;font-weight:800">🎹 TRY IT NOW • INTERACTIVE</span>
+    <h2 style="margin-top:12px">Tap The Piano - Hear The Notes!</h2>
+    <p style="color:var(--silver);font-size:14px">Don't just read about music. Feel it. Tap a key below.</p>
+    <div class="piano">
+      <div class="key" onclick="playNote(this,'Do - C')">Do</div><div class="key black" onclick="playNote(this,'C#')">C#</div><div class="key" onclick="playNote(this,'Re - D')">Re</div><div class="key black" onclick="playNote(this,'D#')">D#</div><div class="key" onclick="playNote(this,'Mi - E')">Mi</div><div class="key" onclick="playNote(this,'Fa - F')">Fa</div><div class="key black" onclick="playNote(this,'F#')">F#</div><div class="key" onclick="playNote(this,'Sol - G')">Sol</div><div class="key black" onclick="playNote(this,'G#')">G#</div><div class="key" onclick="playNote(this,'La - A')">La</div><div class="key black" onclick="playNote(this,'A#')">A#</div><div class="key" onclick="playNote(this,'Ti - B')">Ti</div><div class="key" onclick="playNote(this,'Do - High C')">Do'</div>
+    </div>
+    <div class="now">Now Playing: <b id="nowPlaying">— Tap a key —</b></div>
+  </div>
+</section>
+
+<footer><b>MELODY ACADEMY home of music</b> • Learn • Play • Sing<br>Music Theory, Piano, Vocal & Solfège — From Zero to Stage<br>WhatsApp: +254 700 000 000 • Email: hello@melodyacademy.com<br>© 2026 Melody Academy. All rights reserved.</footer>
+
+<!-- BOTTOM - LOGIN & SIGNUP ONLY HERE -->
+<div class="bottom-auth">
+  <span class="txt">🎵 Ready to learn? <b>Login or Create Free Account</b></span>
+  <a href="login.html" class="btn btn-outline">Login</a>
+  <a href="join.html" class="btn btn-purple">Sign Up Free →</a>
+</div>
+
+<script>
+let current = 0;
+const slides = document.querySelectorAll('.slide');
+const dotsWrap = document.getElementById('dots');
+// Create dots
+slides.forEach((_,i)=>{
+  const b=document.createElement('button'); b.className='dot'+(i===0?' active':''); b.onclick=()=>goTo(i); dotsWrap.appendChild(b);
+});
+function goTo(i){
+  slides[current].classList.remove('active');
+  document.querySelectorAll('.dot')[current].classList.remove('active');
+  current = (i+slides.length)%slides.length;
+  slides[current].classList.add('active');
+  document.querySelectorAll('.dot')[current].classList.add('active');
+  // Re-trigger animations by re-adding active class
+  const s = slides[current]; s.style.animation='none'; void s.offsetWidth; s.style.animation='';
+  if(current===1) makeParticles();
+  if(current===4) makeShards();
+}
+function nextSlide(){ goTo(current+1); }
+function prevSlide(){ goTo(current-1); }
+setInterval(nextSlide, 6000); // Auto slide every 6 sec
+
+// Particle Explosion - Slide 2
+function makeParticles(){
+  const box=document.getElementById('particles'); if(!box) return; box.innerHTML='';
+  const colors=['#FF2E93','#7C3AED','#D4A017','#fff','#A855F7'];
+  for(let i=0;i<28;i++){
+    const el=document.createElement('i');
+    const ang=Math.random()*Math.PI*2, dist=120+Math.random()*180;
+    el.style.left='50%'; el.style.top='50%';
+    el.style.setProperty('--x', Math.cos(ang)*dist+'px');
+    el.style.setProperty('--y', Math.sin(ang)*dist+'px');
+    el.style.background=colors[i%colors.length];
+    el.style.width=(5+Math.random()*8)+'px'; el.style.height=el.style.width;
+    el.style.animationDelay=(Math.random()*0.2)+'s';
+    box.appendChild(el);
+  }
+}
+// Shatter Glass - Slide 5
+function makeShards(){
+  const box=document.getElementById('shards'); if(!box) return; box.innerHTML='';
+  for(let i=0;i<18;i++){
+    const el=document.createElement('i');
+    el.style.left=(Math.random()*90)+'%'; el.style.top=(Math.random()*80)+'%';
+    const ang=Math.random()*Math.PI*2, dist=80+Math.random()*160;
+    el.style.setProperty('--x', Math.cos(ang)*dist+'px');
+    el.style.setProperty('--y', Math.sin(ang)*dist+'px');
+    el.style.animationDelay=(Math.random()*0.3)+'s';
+    box.appendChild(el);
+  }
+}
+makeParticles();
+// Piano Sound
+function playNote(el, name){
+  document.getElementById('nowPlaying').textContent = name + ' 🎵';
+  document.querySelectorAll('.key').forEach(k=>k.classList.remove('playing'));
+  el.classList.add('playing');
+  try{
+    const freqs={'Do - C':261.63,'C#':277.18,'Re - D':293.66,'D#':311.13,'Mi - E':329.63,'Fa - F':349.23,'F#':369.99,'Sol - G':392,'G#':415.3,'La - A':440,'A#':466.16,'Ti - B':493.88,'Do - High C':523.25};
+    const ctx=new (window.AudioContext||window.webkitAudioContext)();
+    const osc=ctx.createOscillator(), gain=ctx.createGain();
+    osc.connect(gain); gain.connect(ctx.destination);
+    osc.frequency.value=freqs[name]||440; osc.type='triangle';
+    gain.gain.setValueAtTime(0.3,ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001,ctx.currentTime+0.8);
+    osc.start(); osc.stop(ctx.currentTime+0.8);
+  }catch(e){}
+  setTimeout(()=>el.classList.remove('playing'),400);
+}
+</script>
+</body>
+</html>
